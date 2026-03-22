@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Wilho Amorim Vitório | Advocacia Criminal Estratégica</title>
+    <meta name="description" content="Justiça começa com quem luta por ela e por você. Especialista em Direito Criminal com foco em estratégia e resultados. OAB/SP 312.144.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        dark: '#0a0a0a',
+                        'dark-card': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(to right, #D4AF37, #F9E2AF, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(to right, #D4AF37, #F9E2AF, #D4AF37);
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        }
+        .area-card.selected {
+            border-color: rgba(212, 175, 55, 0.6) !important;
+            background: rgba(212, 175, 55, 0.05) !important;
+        }
+        .area-card.selected i[data-lucide="check-circle-2"] {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans selection:bg-gold selection:text-dark">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-gold/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="favicon.png" alt="Logo Dr. Wilho" class="h-10 w-10 object-contain rounded-sm border border-gold/20 shadow-lg shadow-gold/5">
+                <div class="h-8 w-[1px] bg-gold/20 mx-2"></div>
+                <div class="flex flex-col">
+                    <span class="text-sm font-bold tracking-widest uppercase">Dr. Wilho</span>
+                    <span class="text-[10px] text-gold uppercase tracking-[0.2em]">OAB/SP 312.144</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider">
+                <a href="#inicio" class="hover:text-gold transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-gold transition-colors">Sobre</a>
+                <a href="#especialidades" class="hover:text-gold transition-colors">Estratégia</a>
+                <a href="#areas" class="text-gold border border-gold/30 px-4 py-1 hover:bg-gold hover:text-dark transition-all duration-300">Consulta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-pattern">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('assets/office-main.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-fade-in-up">
+                <div class="inline-flex items-center space-x-2 bg-gold/10 border border-gold/20 px-4 py-1 rounded-full text-gold text-xs font-bold uppercase tracking-widest">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Justiça e Estratégia</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold leading-tight">
+                    Justiça começa com quem <span class="text-gradient-gold italic">luta por ela</span> e por você.
+                </h1>
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    A justiça não é apenas uma questão de direito, mas de quem tem a estratégia certa para defendê-lo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#areas" class="bg-gold-gradient text-dark font-bold px-8 py-4 rounded-sm flex items-center justify-center space-x-2 hover:scale-105 transition-transform">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        <span>FALE COM O DR. WILHO AGORA</span>
+                    </a>
+                    <a href="#sobre" class="border border-gray-600 hover:border-gold hover:text-gold px-8 py-4 rounded-sm flex items-center justify-center transition-all">
+                        CONHECER TRAJETÓRIA
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-4 bg-gold/10 rounded-full blur-3xl opacity-20"></div>
+                <img src="assets/hero-wilho.jpg" alt="Dr. Wilho Amorim Vitório" class="relative rounded-lg shadow-2xl border border-gold/10 grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Estratégia Section -->
+    <section id="especialidades" class="py-24 bg-dark relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 group hover:border-gold/40 transition-all">
+                    <i data-lucide="zoom-in" class="w-12 h-12 text-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">PESQUISA MINUCIOSA</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Realizamos uma análise profunda de leis, jurisprudências e julgados recentes aplicáveis ao seu caso para garantir a melhor defesa.
+                    </p>
+                </div>
+                <div class="glass-card p-8 group hover:border-gold/40 transition-all bg-gold/5 border-gold/30">
+                    <i data-lucide="users" class="w-12 h-12 text-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">ESTRUTURA ESPECIALIZADA</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Contamos com uma equipe composta por redatores e advogados parceiros, oferecendo suporte jurídico de alto nível.
+                    </p>
+                </div>
+                <div class="glass-card p-8 group hover:border-gold/40 transition-all">
+                    <i data-lucide="target" class="w-12 h-12 text-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">FOCO EM RESULTADOS</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Trabalhamos incansavelmente para alcançar os melhores serviços e resultados para nossos clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section id="areas" class="py-24 bg-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-gold font-bold tracking-[0.2em] uppercase text-sm">Especialidades</h2>
+                <h3 class="text-4xl md:text-5xl font-serif font-bold">Áreas de Atuação</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">Selecione a área de seu interesse para um atendimento especializado e direcionado.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Direito Civil -->
+                <div onclick="selectArea('Direito Civil')" class="area-card glass-card p-8 cursor-pointer transition-all duration-300 border-gold/10 hover:border-gold/40 group relative overflow-hidden" data-area="Direito Civil">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-[.selected]:opacity-100 transition-opacity">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-gold"></i>
+                    </div>
+                    <i data-lucide="scale" class="w-10 h-10 text-gold mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Direito Civil</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Resolução de conflitos, contratos e responsabilidade civil.</p>
+                </div>
+
+                <!-- Direito de Família -->
+                <div onclick="selectArea('Direito de Família')" class="area-card glass-card p-8 cursor-pointer transition-all duration-300 border-gold/10 hover:border-gold/40 group relative overflow-hidden" data-area="Direito de Família">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-[.selected]:opacity-100 transition-opacity">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-gold"></i>
+                    </div>
+                    <i data-lucide="users-2" class="w-10 h-10 text-gold mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Direito de Família</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Divórcios, guarda, pensão e inventários com sensibilidade.</p>
+                </div>
+
+                <!-- Direito do Trabalho -->
+                <div onclick="selectArea('Direito do Trabalho')" class="area-card glass-card p-8 cursor-pointer transition-all duration-300 border-gold/10 hover:border-gold/40 group relative overflow-hidden" data-area="Direito do Trabalho">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-[.selected]:opacity-100 transition-opacity">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-gold"></i>
+                    </div>
+                    <i data-lucide="briefcase" class="w-10 h-10 text-gold mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Direito do Trabalho</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Defesa dos direitos do trabalhador e consultoria empresarial.</p>
+                </div>
+
+                <!-- Direito Criminal -->
+                <div onclick="selectArea('Direito Criminal')" class="area-card glass-card p-8 cursor-pointer transition-all duration-300 border-gold/10 hover:border-gold/40 group relative overflow-hidden" data-area="Direito Criminal">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-[.selected]:opacity-100 transition-opacity">
+                        <i data-lucide="gavel" class="w-10 h-10 text-gold mb-6"></i>
+                    </div>
+                    <i data-lucide="shield-alert" class="w-10 h-10 text-gold mb-6"></i>
+                    <h4 class="text-xl font-bold mb-2">Direito Criminal</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">Defesa estratégica e acompanhamento em processos penais.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center space-y-4">
+                <button id="whatsapp-btn" onclick="redirectToWhatsApp()" class="bg-gold-gradient text-dark font-black px-12 py-5 rounded-sm hover:scale-105 transition-transform text-lg flex items-center space-x-3 shadow-xl shadow-gold/10">
+                    <i data-lucide="message-square" class="w-6 h-6"></i>
+                    <span>INICIAR CONSULTA ESPECIALIZADA</span>
+                </button>
+                <p id="selection-hint" class="text-gold/60 text-xs uppercase tracking-widest font-bold">Selecione uma área acima para começar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 bg-dark-card overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 relative">
+                <img src="assets/about-wilho.jpg" alt="Dr. Wilho em seu escritório" class="rounded-lg shadow-2xl border border-gold/10">
+                <div class="absolute -bottom-6 -right-6 bg-gold p-6 rounded-sm shadow-xl hidden md:block">
+                    <span class="text-dark font-black text-4xl leading-none">9+</span>
+                    <p class="text-dark font-bold text-xs uppercase tracking-tighter">Anos de Estudo &<br>Preparação</p>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 space-y-6">
+                <h2 class="text-gold font-bold tracking-[0.2em] uppercase text-sm">Trajetória e Preparação</h2>
+                <h3 class="text-4xl font-serif font-bold">"Me preparei muito para dar a melhor solução aos seus problemas."</h3>
+                <div class="space-y-4 text-gray-400 leading-relaxed">
+                    <p>
+                        Minha trajetória é marcada por uma dedicação incansável ao Direito. São <span class="text-white font-semibold">duas faculdades totalizando 9 anos de estudo</span> e <span class="text-white font-semibold">duas pós-graduações totalizando 4 anos</span>.
+                    </p>
+                    <p>
+                        Além disso, realizei diversos cursos para a OAB e mantenho uma rotina constante de atualizações em Leis e Doutrinas.
+                    </p>
+                    <div class="bg-gold/5 border-l-4 border-gold p-6 italic">
+                        "Quando o cliente me contrata, ele está contratando todo esse tempo de preparação para garantir os melhores resultados."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Símbolos Section -->
+    <section class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+            <img src="assets/symbols.jpg" alt="Símbolos de Disciplina, Foco e Execução" class="max-w-md w-full rounded-lg shadow-2xl border border-gold/10 mb-8 grayscale hover:grayscale-0 transition-all duration-1000">
+            <div class="grid grid-cols-3 gap-12 text-gold">
+                <div class="flex flex-col items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest mb-2">Disciplina</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest mb-2">Foco</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest mb-2">Execução</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contato" class="py-24 bg-gradient-to-b from-dark-card to-dark relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6 text-center space-y-8 relative z-10">
+            <h2 class="text-4xl font-serif font-bold">Como escolher o advogado ideal?</h2>
+            <p class="text-xl text-gray-400 italic">
+                "Escolher o advogado certo pode fazer toda a diferença no seu caso."
+            </p>
+            <div class="h-[1px] w-24 bg-gold mx-auto"></div>
+            <div class="space-y-4">
+                <p class="text-sm font-bold tracking-widest uppercase">Atendimento Personalizado</p>
+                <a href="https://wa.me/5511986205781" target="_blank" class="inline-flex items-center space-x-3 bg-gold-gradient text-dark font-black px-12 py-5 rounded-sm hover:scale-105 transition-transform text-lg">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                    <span>(11) 98620-5781</span>
+                </a>
+            </div>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">DR. WILHO AMORIM VITÓRIO - OAB/SP 312.144</p>
+        </div>
+        
+        <!-- Background accents -->
+        <div class="absolute top-1/2 left-0 w-64 h-64 bg-gold/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[150px]"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gold/10 text-center">
+        <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+            &copy; 2026 Dr. Wilho Amorim Vitório. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // WhatsApp Redirection Logic
+        let selectedArea = '';
+        const phone = '5511986205781';
+
+        function selectArea(area) {
+            selectedArea = area;
+            
+            // Update UI
+            document.querySelectorAll('.area-card').forEach(card => {
+                card.classList.remove('selected', 'border-gold/60', 'bg-gold/5');
+                if (card.dataset.area === area) {
+                    card.classList.add('selected', 'border-gold/60', 'bg-gold/5');
+                }
+            });
+
+            document.getElementById('selection-hint').innerText = `Área selecionada: ${area}`;
+            document.getElementById('selection-hint').classList.add('text-gold');
+        }
+
+        function redirectToWhatsApp() {
+            let message = 'Olá Dr. Wilho, gostaria de uma consulta.';
+            if (selectedArea) {
+                message = `Olá Dr. Wilho, gostaria de uma consulta especializada em ${selectedArea}.`;
+            }
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
