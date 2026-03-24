@@ -61,11 +61,22 @@
         }
         .carousel-container {
             display: flex;
-            overflow-x: hidden;
+            overflow-x: auto;
             scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            cursor: grab;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-container:active {
+            cursor: grabbing;
         }
         .carousel-item {
             flex: 0 0 100%;
+            scroll-snap-align: start;
         }
         @media (min-width: 768px) {
             .carousel-item {
@@ -446,21 +457,57 @@
             observer.observe(section);
         });
 
-        // Carousel Auto-scroll Logic
+        // Carousel Auto-scroll & Drag Logic
         const carousel = document.getElementById('office-carousel');
-        let scrollAmount = 0;
-        const scrollStep = carousel.offsetWidth / (window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 768 ? 3 : 1));
-        
-        setInterval(() => {
-            scrollAmount += scrollStep;
-            if (scrollAmount >= carousel.scrollWidth) {
-                scrollAmount = 0;
-            }
-            carousel.scrollTo({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }, 3000);
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScrollInterval;
+
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(() => {
+                const scrollStep = carousel.offsetWidth / (window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 768 ? 3 : 1));
+                let nextScroll = carousel.scrollLeft + scrollStep;
+                if (nextScroll >= carousel.scrollWidth - carousel.offsetWidth) {
+                    nextScroll = 0;
+                }
+                carousel.scrollTo({ left: nextScroll, behavior: 'smooth' });
+            }, 3000);
+        };
+
+        const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            stopAutoScroll();
+            carousel.classList.add('active');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            startAutoScroll();
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+            startAutoScroll();
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch events for mobile
+        carousel.addEventListener('touchstart', () => stopAutoScroll());
+        carousel.addEventListener('touchend', () => startAutoScroll());
+
+        startAutoScroll();
     </script>
 </body>
 </html>
