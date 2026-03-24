@@ -59,6 +59,24 @@
         .area-card.selected i[data-lucide="check-circle-2"] {
             opacity: 1 !important;
         }
+        .carousel-container {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .carousel-item {
+            flex: 0 0 100%;
+        }
+        @media (min-width: 768px) {
+            .carousel-item {
+                flex: 0 0 33.333%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel-item {
+                flex: 0 0 25%;
+            }
+        }
     </style>
 </head>
 <body class="bg-dark text-gray-200 font-sans selection:bg-gold selection:text-dark">
@@ -159,23 +177,23 @@
             </div>
 
             <!-- Galeria do Escritório -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+            <div id="office-carousel" class="carousel-container gap-4">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-1.jpg" alt="Escritório Detalhe 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-2.jpg" alt="Escritório Detalhe 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-3.jpg" alt="Escritório Detalhe 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-4.jpg" alt="Escritório Detalhe 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-5.jpg" alt="Escritório Detalhe 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <div class="overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
+                <div class="carousel-item overflow-hidden rounded-lg border border-gold/10 hover:border-gold/40 transition-all aspect-square relative group">
                     <img src="assets/office-new-6.jpg" alt="Escritório Detalhe 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
             </div>
@@ -427,6 +445,22 @@
             section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
             observer.observe(section);
         });
+
+        // Carousel Auto-scroll Logic
+        const carousel = document.getElementById('office-carousel');
+        let scrollAmount = 0;
+        const scrollStep = carousel.offsetWidth / (window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 768 ? 3 : 1));
+        
+        setInterval(() => {
+            scrollAmount += scrollStep;
+            if (scrollAmount >= carousel.scrollWidth) {
+                scrollAmount = 0;
+            }
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }, 3000);
     </script>
 </body>
 </html>
