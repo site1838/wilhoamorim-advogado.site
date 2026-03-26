@@ -396,35 +396,35 @@
             <h3 class="text-3xl md:text-5xl font-serif font-bold text-gradient-gold">Excelência em <span class="italic">Cada Detalhe</span></h3>
         </div>
         
-        <div class="relative group/new-carousel">
-            <div id="new-photo-carousel" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6 cursor-grab active:cursor-grabbing pb-8">
+        <div class="relative group/new-carousel max-w-4xl mx-auto">
+            <div id="new-photo-carousel" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing pb-8">
                 <!-- Foto 1 -->
-                <div class="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
+                <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/new-gallery-3.jpg" alt="Galeria Dr. Wilho" class="w-full h-full object-contain">
                 </div>
                 <!-- Foto 2 -->
-                <div class="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
+                <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/new-gallery-5.jpg" alt="Galeria Dr. Wilho" class="w-full h-full object-contain">
                 </div>
                 <!-- Foto 3 -->
-                <div class="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
+                <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/new-gallery-6.jpg" alt="Galeria Dr. Wilho" class="w-full h-full object-contain">
                 </div>
                 <!-- Foto Dele 4 -->
-                <div class="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
+                <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/Foto dele 4.jpeg" alt="Dr. Wilho em Atuação" class="w-full h-full object-contain">
                 </div>
                 <!-- Foto Dele -->
-                <div class="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
+                <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/Foto dele.jpeg" alt="Dr. Wilho Amorim Vitório" class="w-full h-full object-contain">
                 </div>
             </div>
 
             <!-- Navegação -->
-            <button onclick="scrollNewCarousel(-1)" class="absolute left-10 top-1/2 -translate-y-1/2 bg-dark/80 border border-gold/30 p-3 text-gold rounded-full hover:bg-gold hover:text-dark transition-all z-20 shadow-xl opacity-0 group-hover/new-carousel:opacity-100 hidden md:block">
+            <button onclick="scrollNewCarousel(-1)" class="absolute -left-16 top-1/2 -translate-y-1/2 bg-dark/80 border border-gold/30 p-3 text-gold rounded-full hover:bg-gold hover:text-dark transition-all z-20 shadow-xl opacity-100 hidden md:block">
                 <i data-lucide="chevron-left" class="w-6 h-6"></i>
             </button>
-            <button onclick="scrollNewCarousel(1)" class="absolute right-10 top-1/2 -translate-y-1/2 bg-dark/80 border border-gold/30 p-3 text-gold rounded-full hover:bg-gold hover:text-dark transition-all z-20 shadow-xl opacity-0 group-hover/new-carousel:opacity-100 hidden md:block">
+            <button onclick="scrollNewCarousel(1)" class="absolute -right-16 top-1/2 -translate-y-1/2 bg-dark/80 border border-gold/30 p-3 text-gold rounded-full hover:bg-gold hover:text-dark transition-all z-20 shadow-xl opacity-100 hidden md:block">
                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
             </button>
         </div>
@@ -515,7 +515,7 @@
         // Controle do novo carrossel de fotos
         window.scrollNewCarousel = function(direction) {
             const carousel = document.getElementById('new-photo-carousel');
-            const scrollStep = carousel.offsetWidth * 0.8;
+            const scrollStep = carousel.offsetWidth;
             carousel.scrollBy({ left: direction * scrollStep, behavior: 'smooth' });
         };
     </script>
