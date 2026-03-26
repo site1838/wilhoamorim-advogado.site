@@ -106,6 +106,13 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        @keyframes bounce-x {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+        .animate-bounce-x {
+            animation: bounce-x 1.5s infinite;
+        }
     </style>
 </head>
 <body class="bg-dark text-gray-200 font-sans selection:bg-gold selection:text-dark">
@@ -418,6 +425,11 @@
                 <div class="flex-none w-full snap-center aspect-[4/5] rounded-xl overflow-hidden border border-gold/20 bg-black/20">
                     <img src="assets/Foto dele.jpeg" alt="Dr. Wilho Amorim Vitório" class="w-full h-full object-contain">
                 </div>
+            </div>
+
+            <!-- Mobile Swipe Hint -->
+            <div class="md:hidden absolute right-4 top-1/2 -translate-y-1/2 text-gold/60 z-10 pointer-events-none animate-bounce-x">
+                <i data-lucide="chevron-right" class="w-8 h-8"></i>
             </div>
 
             <!-- Navegação -->
